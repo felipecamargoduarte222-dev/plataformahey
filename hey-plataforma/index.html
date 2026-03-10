@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hey! Plataforma</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Hey! Plataforma</div>
+
+<nav>
+<button onclick="mostrarPagina('jogos')">Jogos</button>
+<button onclick="mostrarPagina('tech')">Tech</button>
+</nav>
+
+</header>
+
+
+<section id="jogos" class="pagina ativa">
+
+<h2>Catálogo de Jogos</h2>
+
+<div class="catalogo">
+
+<div class="jogo">
+<div class="thumb roxo"></div>
+<h3>Jogo do Pedro</h3>
+<button onclick="abrirJogo('Pedro')">Jogar</button>
+</div>
+
+<div class="jogo">
+<div class="thumb laranja"></div>
+<h3>Jogo do Edgar</h3>
+<button onclick="abrirJogo('Edgar')">Jogar</button>
+</div>
+
+<div class="jogo">
+<div class="thumb roxo"></div>
+<h3>Jogo do Eduardo</h3>
+<button onclick="abrirJogo('Eduardo')">Jogar</button>
+</div>
+
+<div class="jogo">
+<div class="thumb laranja"></div>
+<h3>Jogo do Bento</h3>
+<button onclick="abrirJogo('Bento')">Jogar</button>
+</div>
+
+<div class="jogo">
+<div class="thumb roxo"></div>
+<h3>Jogo do Tales</h3>
+<button onclick="abrirJogo('Tales')">Jogar</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="tech" class="pagina">
+
+<h2>Hey! Tech</h2>
+
+<div class="techgrid">
+
+<div class="techcard">
+<h3>Robótica Kids</h3>
+<p>Introdução à robótica e construção de projetos tecnológicos.</p>
+</div>
+
+<div class="techcard">
+<h3>Aventureiros da Programação</h3>
+<p>Aprendizado de lógica através de desafios e jogos.</p>
+</div>
+
+<div class="techcard">
+<h3>GameMaker</h3>
+<p>Criação de jogos enquanto aprende programação.</p>
+</div>
+
+<div class="techcard">
+<h3>Maker High Tech</h3>
+<p>Projetos avançados com eletrônica e criatividade.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
