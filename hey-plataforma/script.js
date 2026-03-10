@@ -1,12 +1,9 @@
 function mostrarPagina(pagina){
 
-let paginas = document.querySelectorAll(".pagina");
+document.getElementById("jogos").style.display="none";
+document.getElementById("tech").style.display="none";
 
-paginas.forEach(function(p){
-p.classList.remove("ativa");
-});
-
-document.getElementById(pagina).classList.add("ativa");
+document.getElementById(pagina).style.display="block";
 
 }
 
@@ -15,3 +12,5 @@ function abrirJogo(nome){
 alert("Abrindo o jogo do " + nome);
 
 }
+
+mostrarPagina("jogos");
