@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
-<title>Plataforma Hey</title>
+<title>Hey Peppers - Trilha Tech</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-
-<h1>Plataforma Hey</h1>
-
-<div class="menu">
-<button onclick="mostrarPagina('jogos')">Jogos</button>
-<button onclick="mostrarPagina('tech')">Tech</button>
-</div>
-
+  <h1>Plataforma Hey!</h1>
 </header>
 
+<!-- BANNERS TRILHA TECH -->
+<section class="banners">
+  <div class="banner laranja" onclick="scrollPara('robotica-kids')">
+    <h2>Robótica Kids</h2>
+  </div>
+  <div class="banner azul" onclick="scrollPara('robotica')">
+    <h2>Robótica</h2>
+  </div>
+  <div class="banner roxo" onclick="scrollPara('aventura')">
+    <h2>Aventureiros da Programação</h2>
+  </div>
+  <div class="banner vermelho" onclick="scrollPara('programacao')">
+    <h2>Programação de Jogos</h2>
+  </div>
+  <div class="banner laranja" onclick="scrollPara('maker-high-tech')">
+    <h2>Maker High Tech</h2>
+  </div>
+</section>
 
-<!-- AREA JOGOS -->
+<main>
 
-<div id="jogos" class="pagina">
+<!-- SEÇÃO JOGOS -->
+<section id="jogos" class="pagina">
+  <h2>Jogos dos Alunos</h2>
+  <p>Veja o que nossos alunos já criaram!</p>
+  <div class="catalogo">
+    <div class="card pequeno">
+      <h3>Jogo do Pedro</h3>
+      <button onclick="abrirJogo('Pedro')">Jogar</button>
+    </div>
+    <div class="card pequeno">
+      <h3>Jogo do Edgar</h3>
+      <button onclick="abrirJogo('Edgar')">Jogar</button>
+    </div>
+    <div class="card pequeno">
+      <h3>Jogo do Eduardo</h3>
+      <button onclick="abrirJogo('Eduardo')">Jogar</button>
+    </div>
+    <div class="card pequeno">
+      <h3>Jogo do Bento</h3>
+      <button onclick="abrirJogo('Bento')">Jogar</button>
+    </div>
+    <div class="card pequeno">
+      <h3>Jogo do Tales</h3>
+      <button onclick="abrirJogo('Tales')">Jogar</button>
+    </div>
+  </div>
+  
+</section>
 
-<h2>Jogos</h2>
+<!-- SEÇÃO CURSOS -->
+<section id="cursos" class="pagina">
 
-<p>Área onde ficam alguns jogos feitos nas aulas.</p>
+  <div class="catalogo">
+    <div id="robotica-kids" class="card pequeno laranja">
+      <h3>Robótica Kids</h3>
+      <p>6 a 7 anos — Introdução à tecnologia com projetos divertidos e educativos.</p>
+    </div>
+    <div id="robotica" class="card pequeno azul">
+      <h3>Robótica</h3>
+      <p>7 a 11 anos — Construção com LEGO WeDo 2.0 e projetos práticos.</p>
+    </div>
+    <div id="aventura" class="card pequeno roxo">
+      <h3>Aventureiros da Programação</h3>
+      <p>8 a 12 anos — Programação com Scratch e lógica computacional.</p>
+    </div>
+    <div id="programacao" class="card pequeno vermelho">
+      <h3>Programação de Jogos</h3>
+      <p>9 a 13 anos — Criação de jogos 2D com física aplicada.</p>
+    </div>
+    <div id="maker-high-tech" class="card pequeno laranja">
+      <h3>Maker High Tech</h3>
+      <p>10+ anos — Arduino, protoboard, placa mãe e eletrônica prática.</p>
+    </div>
+  </div>
+</section>
 
-<div class="catalogo">
-
-<div class="jogo">
-<h3>Jogo do Pedro</h3>
-<button onclick="abrirJogo('Pedro')">Jogar</button>
-</div>
-
-<div class="jogo">
-<h3>Jogo do Edgar</h3>
-<button onclick="abrirJogo('Edgar')">Jogar</button>
-</div>
-
-<div class="jogo">
-<h3>Jogo do Eduardo</h3>
-<button onclick="abrirJogo('Eduardo')">Jogar</button>
-</div>
-
-<div class="jogo">
-<h3>Jogo do Bento</h3>
-<button onclick="abrirJogo('Bento')">Jogar</button>
-</div>
-
-<div class="jogo">
-<h3>Jogo do Tales</h3>
-<button onclick="abrirJogo('Tales')">Jogar</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- AREA TECH -->
-
-<div id="tech" class="pagina">
-
-<h2>Tech</h2>
-
-<p>Área com alguns cursos e projetos de tecnologia.</p>
-
-<div class="curso">Robótica Kids</div>
-
-<div class="curso">Aventureiros da Programação</div>
-
-<div class="curso">GameMaker</div>
-
-<div class="curso">Maker High Tech</div>
-
-</div>
-
+</main>
 
 <script src="script.js"></script>
-
 </body>
 </html>
