@@ -1,16 +1,18 @@
 function mostrarPagina(pagina){
 
-document.getElementById("jogos").style.display="none";
-document.getElementById("tech").style.display="none";
+let paginas = document.querySelectorAll(".pagina");
 
-document.getElementById(pagina).style.display="block";
+paginas.forEach(p => {
+p.classList.remove("ativa");
+p.classList.add("escondida");
+});
+
+let atual = document.getElementById(pagina);
+
+atual.classList.remove("escondida");
+
+setTimeout(() => {
+atual.classList.add("ativa");
+}, 50);
 
 }
-
-function abrirJogo(nome){
-
-alert("Abrindo o jogo do " + nome);
-
-}
-
-mostrarPagina("jogos");
