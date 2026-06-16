@@ -1,94 +1,274 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Hey Peppers - Trilha Tech</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hey! Peppers – Trilha Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>Plataforma Hey!</h1>
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-hey">Hey!</span>
+      <span class="logo-peppers">Peppers</span>
+    </div>
+    <nav class="main-nav">
+      <button class="nav-btn active" data-page="home">Inicio</button>
+      <button class="nav-btn" data-page="jogos">Jogos</button>
+      <button class="nav-btn" data-page="cursos">Trilhas</button>
+      <button class="nav-btn" data-page="admin">Gerenciar</button>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
-<!-- BANNERS TRILHA TECH -->
-<section class="banners">
-  <div class="banner laranja" onclick="scrollPara('robotica-kids')">
-    <h2>Robótica Kids</h2>
-  </div>
-  <div class="banner azul" onclick="scrollPara('robotica')">
-    <h2>Robótica</h2>
-  </div>
-  <div class="banner roxo" onclick="scrollPara('aventura')">
-    <h2>Aventureiros da Programação</h2>
-  </div>
-  <div class="banner vermelho" onclick="scrollPara('programacao')">
-    <h2>Programação de Jogos</h2>
-  </div>
-  <div class="banner laranja" onclick="scrollPara('maker-high-tech')">
-    <h2>Maker High Tech</h2>
-  </div>
-</section>
+<!-- ===================== HOME ===================== -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Escola de Tecnologia para Criancas e Jovens</p>
+      <h1 class="hero-title">Aprenda, crie<br /><span class="accent">e inove</span> com a gente!</h1>
+      <p class="hero-sub">Na Hey! Peppers, cada aluno e um inventor. Robotica, programacao, jogos e muito mais — tudo de um jeito divertido e pratico.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="goTo('cursos')">Ver Trilhas</button>
+        <button class="btn-secondary" onclick="goTo('jogos')">Ver Jogos dos Alunos</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-cards">
+        <div class="float-card fc1">Robotica</div>
+        <div class="float-card fc2">Jogos</div>
+        <div class="float-card fc3">Maker</div>
+        <div class="float-card fc4">Codigo</div>
+        <div class="float-card fc5">Scratch</div>
+      </div>
+    </div>
+  </section>
 
-<main>
+  <!-- TRILHAS BANNER -->
+  <section class="trilhas-banner">
+    <h2 class="section-title">Nossas Trilhas</h2>
+    <div class="trilhas-grid">
+      <div class="trilha-card" data-cor="laranja" onclick="goToCurso('robotica-kids')">
+        <div class="trilha-sigla">RK</div>
+        <h3>Robotica Kids</h3>
+        <p>6–7 anos</p>
+      </div>
+      <div class="trilha-card" data-cor="azul" onclick="goToCurso('robotica')">
+        <div class="trilha-sigla">RB</div>
+        <h3>Robotica</h3>
+        <p>7–11 anos</p>
+      </div>
+      <div class="trilha-card" data-cor="roxo" onclick="goToCurso('aventura')">
+        <div class="trilha-sigla">AV</div>
+        <h3>Aventureiros</h3>
+        <p>8–12 anos</p>
+      </div>
+      <div class="trilha-card" data-cor="vermelho" onclick="goToCurso('programacao')">
+        <div class="trilha-sigla">PJ</div>
+        <h3>Prog. de Jogos</h3>
+        <p>9–13 anos</p>
+      </div>
+      <div class="trilha-card" data-cor="verde" onclick="goToCurso('maker-high-tech')">
+        <div class="trilha-sigla">MH</div>
+        <h3>Maker High Tech</h3>
+        <p>10+ anos</p>
+      </div>
+    </div>
+  </section>
 
-<!-- SEÇÃO JOGOS -->
-<section id="jogos" class="pagina">
-  <h2>Jogos dos Alunos</h2>
-  <p>Veja o que nossos alunos já criaram!</p>
-  <div class="catalogo">
-    <div class="card pequeno">
-      <h3>Jogo do Pedro</h3>
-      <button onclick="abrirJogo('Pedro')">Jogar</button>
+  <!-- DESTAQUE JOGOS HOME -->
+  <section class="destaque-jogos">
+    <div class="destaque-header">
+      <h2 class="section-title">Ultimos Jogos Publicados</h2>
+      <button class="btn-link" onclick="goTo('jogos')">Ver todos &rarr;</button>
     </div>
-    <div class="card pequeno">
-      <h3>Jogo do Edgar</h3>
-      <button onclick="abrirJogo('Edgar')">Jogar</button>
+    <div class="jogos-grid" id="jogos-home-preview"></div>
+  </section>
+</div>
+
+<!-- ===================== JOGOS ===================== -->
+<div id="page-jogos" class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <h2 class="page-title">Jogos dos Alunos</h2>
+      <p class="page-sub">Confira as criacoes dos nossos alunos!</p>
+      <div class="jogos-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="robotica-kids">Robotica Kids</button>
+        <button class="filter-btn" data-filter="robotica">Robotica</button>
+        <button class="filter-btn" data-filter="aventura">Aventureiros</button>
+        <button class="filter-btn" data-filter="programacao">Prog. Jogos</button>
+        <button class="filter-btn" data-filter="maker-high-tech">Maker</button>
+      </div>
     </div>
-    <div class="card pequeno">
-      <h3>Jogo do Eduardo</h3>
-      <button onclick="abrirJogo('Eduardo')">Jogar</button>
-    </div>
-    <div class="card pequeno">
-      <h3>Jogo do Bento</h3>
-      <button onclick="abrirJogo('Bento')">Jogar</button>
-    </div>
-    <div class="card pequeno">
-      <h3>Jogo do Tales</h3>
-      <button onclick="abrirJogo('Tales')">Jogar</button>
+    <div class="jogos-grid large" id="jogos-lista"></div>
+    <div class="empty-state" id="jogos-empty" style="display:none">
+      <p>Nenhum jogo encontrado nessa categoria ainda.</p>
     </div>
   </div>
-  
-</section>
+</div>
 
-<!-- SEÇÃO CURSOS -->
-<section id="cursos" class="pagina">
+<!-- ===================== CURSOS ===================== -->
+<div id="page-cursos" class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <h2 class="page-title">Trilhas Tecnologicas</h2>
+      <p class="page-sub">Conheca nossos cursos e o que cada um oferece.</p>
+    </div>
 
-  <div class="catalogo">
-    <div id="robotica-kids" class="card pequeno laranja">
-      <h3>Robótica Kids</h3>
-      <p>6 a 7 anos — Introdução à tecnologia com projetos divertidos e educativos.</p>
+    <div id="curso-detalhe" class="curso-detalhe hidden">
+      <button class="btn-back" onclick="voltarCursos()">&larr; Voltar as trilhas</button>
+      <div id="curso-detalhe-conteudo"></div>
     </div>
-    <div id="robotica" class="card pequeno azul">
-      <h3>Robótica</h3>
-      <p>7 a 11 anos — Construção com LEGO WeDo 2.0 e projetos práticos.</p>
-    </div>
-    <div id="aventura" class="card pequeno roxo">
-      <h3>Aventureiros da Programação</h3>
-      <p>8 a 12 anos — Programação com Scratch e lógica computacional.</p>
-    </div>
-    <div id="programacao" class="card pequeno vermelho">
-      <h3>Programação de Jogos</h3>
-      <p>9 a 13 anos — Criação de jogos 2D com física aplicada.</p>
-    </div>
-    <div id="maker-high-tech" class="card pequeno laranja">
-      <h3>Maker High Tech</h3>
-      <p>10+ anos — Arduino, protoboard, placa mãe e eletrônica prática.</p>
+
+    <div id="cursos-lista">
+      <div class="cursos-grid" id="cursos-grid-lista"></div>
     </div>
   </div>
-</section>
+</div>
 
-</main>
+<!-- ===================== ADMIN ===================== -->
+<div id="page-admin" class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <h2 class="page-title">Painel de Gerenciamento</h2>
+      <p class="page-sub">Adicione jogos, edite trilhas e gerencie o conteudo da plataforma.</p>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="add-jogo">Adicionar Jogo</button>
+      <button class="admin-tab" data-tab="edit-cursos">Editar Trilhas</button>
+      <button class="admin-tab" data-tab="lista-jogos">Gerenciar Jogos</button>
+    </div>
+
+    <!-- TAB: ADICIONAR JOGO -->
+    <div class="admin-panel active" id="tab-add-jogo">
+      <h3 class="admin-section-title">Novo Jogo</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nome do Aluno *</label>
+          <input type="text" id="jogo-aluno" placeholder="Ex: Pedro" />
+        </div>
+        <div class="form-group">
+          <label>Titulo do Jogo *</label>
+          <input type="text" id="jogo-titulo" placeholder="Ex: Aventura Espacial" />
+        </div>
+        <div class="form-group">
+          <label>Trilha *</label>
+          <select id="jogo-trilha">
+            <option value="">Selecione...</option>
+            <option value="robotica-kids">Robotica Kids</option>
+            <option value="robotica">Robotica</option>
+            <option value="aventura">Aventureiros da Programacao</option>
+            <option value="programacao">Programacao de Jogos</option>
+            <option value="maker-high-tech">Maker High Tech</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Link do Jogo (URL)</label>
+          <input type="url" id="jogo-url" placeholder="https://scratch.mit.edu/..." />
+        </div>
+        <div class="form-group full">
+          <label>Descricao</label>
+          <textarea id="jogo-desc" rows="3" placeholder="Descreva brevemente o jogo..."></textarea>
+        </div>
+        <div class="form-group full">
+          <label>Imagem de Capa</label>
+          <div class="file-drop" id="jogo-img-drop">
+            <input type="file" id="jogo-img" accept="image/*" hidden />
+            <div class="file-drop-inner" onclick="document.getElementById('jogo-img').click()">
+              <div class="file-icon-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <p>Clique para selecionar ou arraste uma imagem aqui</p>
+              <small>PNG, JPG ou GIF — ate 5 MB</small>
+            </div>
+            <img id="jogo-img-preview" class="img-preview hidden" alt="Preview" />
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-primary" onclick="adicionarJogo()">Publicar Jogo</button>
+        <button class="btn-ghost" onclick="limparFormJogo()">Limpar</button>
+      </div>
+      <div id="jogo-feedback" class="feedback hidden"></div>
+    </div>
+
+    <!-- TAB: EDITAR CURSOS -->
+    <div class="admin-panel" id="tab-edit-cursos">
+      <h3 class="admin-section-title">Editar Trilhas</h3>
+      <p class="admin-hint">Selecione uma trilha para editar seu conteudo e imagem.</p>
+      <div class="cursos-edit-list" id="cursos-edit-list"></div>
+    </div>
+
+    <!-- TAB: LISTA JOGOS -->
+    <div class="admin-panel" id="tab-lista-jogos">
+      <h3 class="admin-section-title">Jogos Cadastrados</h3>
+      <div id="admin-jogos-lista" class="admin-jogos-table"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL JOGO ===================== -->
+<div id="modal-jogo" class="modal hidden">
+  <div class="modal-overlay" onclick="fecharModal()"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="fecharModal()">&times;</button>
+    <div id="modal-conteudo"></div>
+  </div>
+</div>
+
+<!-- ===================== MODAL EDITAR CURSO ===================== -->
+<div id="modal-curso" class="modal hidden">
+  <div class="modal-overlay" onclick="fecharModalCurso()"></div>
+  <div class="modal-box modal-curso-box">
+    <button class="modal-close" onclick="fecharModalCurso()">&times;</button>
+    <h3 id="modal-curso-titulo">Editar Trilha</h3>
+    <div class="form-grid">
+      <div class="form-group full">
+        <label>Descricao Curta</label>
+        <textarea id="modal-curso-desc" rows="3"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>Sobre a Trilha (texto completo)</label>
+        <textarea id="modal-curso-sobre" rows="5"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>O que o aluno vai aprender</label>
+        <textarea id="modal-curso-aprende" rows="4" placeholder="Uma habilidade por linha"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>Imagem de Capa da Trilha</label>
+        <div class="file-drop" id="curso-img-drop">
+          <input type="file" id="curso-img" accept="image/*" hidden />
+          <div class="file-drop-inner" onclick="document.getElementById('curso-img').click()">
+            <div class="file-icon-svg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <p>Clique para selecionar ou arraste uma imagem</p>
+          </div>
+          <img id="curso-img-preview" class="img-preview hidden" alt="Preview" />
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-primary" onclick="salvarCurso()">Salvar Trilha</button>
+      <button class="btn-ghost" onclick="fecharModalCurso()">Cancelar</button>
+    </div>
+    <div id="curso-feedback" class="feedback hidden"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden"></div>
 
 <script src="script.js"></script>
 </body>
